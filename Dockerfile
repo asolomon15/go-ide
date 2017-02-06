@@ -56,7 +56,8 @@ RUN mkdir -p ~/.vim/autoload ~/.vim/bundle && \
     git clone https://github.com/Valloric/YouCompleteMe ~/.vim/bundle/YouCompleteMe && \
     git clone https://github.com/garyburd/go-explorer.git ~/.vim/bundle/go-explorer && \
     git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree && \
-    git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+    git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go && \
+    git clone https://github.com/tfnico/vim-gradle.git ~/.vim/bundle/vim-gradle 
 
 RUN cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.sh
 RUN curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | /bin/zsh || true
