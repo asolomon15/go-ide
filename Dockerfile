@@ -31,6 +31,7 @@ RUN apt-get -q update && \
     python-dev \
     tree \
     htop \
+    ruby-dev \ 
     && \
   apt-get clean && \
   rm /var/lib/apt/lists/*_*
@@ -57,9 +58,10 @@ RUN mkdir -p ~/.vim/autoload ~/.vim/bundle && \
     git clone https://github.com/garyburd/go-explorer.git ~/.vim/bundle/go-explorer && \
     git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree && \
     git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go && \
-    git clone https://github.com/tfnico/vim-gradle.git ~/.vim/bundle/vim-gradle 
+    git clone https://github.com/tfnico/vim-gradle.git ~/.vim/bundle/vim-gradle && \
+    git clone https://github.com/wincent/command-t  ~/.vim/bundle/command-t
 
-RUN cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.sh
+RUN cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.sh && cd ~/.vim/bundle/command-t/ruby/command-t && ruby extconf.rb && make
 RUN curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | /bin/zsh || true
 
 ADD vimrc /root/.vimrc
