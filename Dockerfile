@@ -15,7 +15,15 @@
 FROM golang:latest
 
 ENV EDITOR vim
-ENV SHELL zsh
+ENV SHELL bash
+
+# debian repositories
+# deb http://deb.debian.org/debian buster main
+# deb http://deb.debian.org/debian buster-updates main
+# deb http://security.debian.org buster/updates main
+ADD sources.list /etc/apt/
+
+
 
 RUN apt-get -q update && \
   apt-get install --no-install-recommends -y --force-yes -q \
@@ -24,6 +32,7 @@ RUN apt-get -q update && \
     tmux \
     curl \
     git \
+    vim \
     vim-nox \
     rubygems \
     build-essential \
@@ -33,7 +42,7 @@ RUN apt-get -q update && \
     htop \
     ruby-dev \ 
     && \
-  apt-get clean && \
+  apt-get upgrade -y && apt-get clean && \
   rm /var/lib/apt/lists/*_*
 
 RUN gem install tmuxinator
@@ -61,7 +70,7 @@ RUN mkdir -p ~/.vim/autoload ~/.vim/bundle && \
     git clone https://github.com/tfnico/vim-gradle.git ~/.vim/bundle/vim-gradle && \
     git clone https://github.com/wincent/command-t  ~/.vim/bundle/command-t
 
-RUN cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.sh && cd ~/.vim/bundle/command-t/ruby/command-t && ruby extconf.rb && make
+RUN cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.sh && cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t && ruby extconf.rb && make
 RUN curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | /bin/zsh || true
 
 ADD vimrc /root/.vimrc
