@@ -46,3 +46,6 @@ let g:go_fmt_command = "goimports"
 " fixes not being able to navigate subdirectories http://stackoverflow.com/a/8758710/105282
 let g:NERDTreeDirArrows=0
 set encoding=utf-8
+
+ "" gui configuration                                                                                                                                                                                                                                                                                                               
+ colorscheme moonfly 
