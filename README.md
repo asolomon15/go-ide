@@ -18,7 +18,7 @@ Mount a volume so you don't lose your work:
 
 Or, mount a volume from a named container.
 
-Building the Container
+Building the Image
 ----------------------
 Nothing special if you already have Docker installed:
 
