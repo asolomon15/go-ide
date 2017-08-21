@@ -57,7 +57,9 @@ RUN go get github.com/nsf/gocode \
            github.com/jstemmer/gotags \
            github.com/garyburd/go-explorer/src/getool \
 	   github.com/codegangsta/cli \
-	   github.com/spf13/cobra/cobra
+	   github.com/spf13/cobra/cobra \
+           github.com/mitchellh/gox \
+	   github.com/gohugoio/hugo
 
 RUN mkdir -p ~/.vim/autoload ~/.vim/bundle && \
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
