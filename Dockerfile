@@ -72,7 +72,8 @@ RUN mkdir -p ~/.vim/autoload ~/.vim/bundle && \
     git clone https://github.com/tfnico/vim-gradle.git ~/.vim/bundle/vim-gradle && \
     git clone https://github.com/wincent/command-t  ~/.vim/bundle/command-t && \
     git clone https://github.com/asolomon15/vim-moonfly-colors.git  ~/.vim/bundle/vim-moonfly-colors && \
-    git clone https://github.com/asolomon15/vim-moonfly-statusline.git ~/.vim/bundle/vim-moonfly-statusline
+    git clone https://github.com/asolomon15/vim-moonfly-statusline.git ~/.vim/bundle/vim-moonfly-statusline && \
+    git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt
 
 RUN cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.sh && cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t && ruby extconf.rb && make
 RUN curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | /bin/zsh || true
